@@ -1,0 +1,9 @@
+# This file may be used to create an environment using:
+# $ conda create --name <env> --file <this file>
+# platform: win-64
+beautifulsoup4==4.7.1
+pandas==0.24.1
+pymongo==3.7.2
+selenium==3.13.0
+splinter==0.10.0
+
