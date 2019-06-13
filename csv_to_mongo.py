@@ -39,7 +39,7 @@ def to_mongo(options, download_dir):
 
         #df.to_csv('data/test_data.csv') 
 
-        mongo_uri = 'mongodb://heroku_vkr5b9ph:snp4jqmg0c7njl669p68koiuls@ds261626.mlab.com:61626/heroku_vkr5b9ph'
+        mongo_uri = 'mongodb://heroku_cg8r2zh6:m3nbgu01cbq6tavgq57ot5seh9@ds237267.mlab.com:37267/heroku_cg8r2zh6'
 
         client = pymongo.MongoClient(mongo_uri)
         db = client['heroku_vkr5b9ph']
