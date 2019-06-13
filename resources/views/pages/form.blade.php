@@ -12,6 +12,7 @@
             <p>Search for the Cheapest Rate Plan</p>
           </div>
           <form action ="{{ route('pages.send') }}" method="post" role="form" id="form-buscar" class="form-inline justify-content-center" style="margin: 0 auto; width:100%;">
+            @csrf 
             <div class="form-group">
               <div class="input-group">
                 <input id="1" class="form-control" type="text" name="search" placeholder="Search..." required/>
