@@ -84,12 +84,12 @@ def get_csv(get_options=False):
             time.sleep(1)
             old_exists = os.path.isfile(download_dir + f'/{old_filename}')
         
-        new_exists = os.path.isfile(download_dir + f'/{old_filename}')
+        new_exists = os.path.isfile(download_dir + f'/{new_filename}')
         #second while loop to check if file name has been changed
         while not new_exists:
             print('in second while')
             if old_exists:
-                os.rename(download_dir + f'/{old_filename}', download_dir + f'/{old_filename}')
+                os.rename(download_dir + f'/{old_filename}', download_dir + f'/{new_filename}')
                 time.sleep(1) 
                 break
             else:
