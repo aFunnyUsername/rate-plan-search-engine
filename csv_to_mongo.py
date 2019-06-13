@@ -42,7 +42,7 @@ def to_mongo(options, download_dir):
         mongo_uri = 'mongodb://heroku_cg8r2zh6:m3nbgu01cbq6tavgq57ot5seh9@ds237267.mlab.com:37267/heroku_cg8r2zh6'
 
         client = pymongo.MongoClient(mongo_uri)
-        db = client['heroku_vkr5b9ph']
+        db = client['heroku_cg8r2zh6']
        
         coll = db[options[option]]
        
