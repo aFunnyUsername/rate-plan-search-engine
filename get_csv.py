@@ -77,20 +77,19 @@ def get_csv(get_options=False):
         old_filename = 'PlugInIllinoisExport.csv'
         new_filename = options[option].replace(' ', '_') + '_data.csv' 
         print(new_filename) 
-        old_exists = os.path.isfile(download_dir + '/{}'.format(old_filename))
+        old_exists = os.path.isfile(download_dir + f'/{old_filename}')
         #first while loop to check if file has been downloaded 
         while not old_exists:
             print('in first while') 
             time.sleep(1)
-            old_exists = os.path.isfile(download_dir + '/{}'.format(old_filename))
+            old_exists = os.path.isfile(download_dir + f'/{old_filename}')
         
-        new_exists = os.path.isfile(download_dir + '/{}'.format(old_filename))
+        new_exists = os.path.isfile(download_dir + f'/{old_filename}')
         #second while loop to check if file name has been changed
         while not new_exists:
             print('in second while')
             if old_exists:
-                os.rename(download_dir + '/{}'.format(old_filename),
-                        download_dir + '/{}'.format(old_filename))
+                os.rename(download_dir + f'/{old_filename}', download_dir + f'/{old_filename}')
                 time.sleep(1) 
                 break
             else:
