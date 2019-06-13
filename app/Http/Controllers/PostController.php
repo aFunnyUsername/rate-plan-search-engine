@@ -48,7 +48,7 @@ class PostController extends Controller
       }
     }
     
-    echo $cheapest_plan['plan_description'];
+    dd($cheapest_plan['plan_description']);
 
 
 /*if($data){
