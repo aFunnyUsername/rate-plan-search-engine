@@ -22,7 +22,7 @@ class PostController extends Controller
       'midamerican' => 'MidAmerican',];
       
     $data = new Post($request->all());
-    $zipcode = $data['zipcode'];
+    $zipcode = $data['search'];
     $rate_zone = $zones[$zipcode];
 
     $plans = DB::collection($rate_zone)->get();
