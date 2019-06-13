@@ -11,7 +11,7 @@
             <h1>Plug-in to Distributed Energy!</h1>
             <p>Search for the Cheapest Rate Plan</p>
           </div>
-          <form action ="{{ route('post.save') }}"role="form" id="form-buscar" class="form-inline justify-content-center" style="margin: 0 auto; width:100%;">
+          <form action ="{{ route('pages.send') }}"role="form" id="form-buscar" class="form-inline justify-content-center" style="margin: 0 auto; width:100%;">
             <div class="form-group">
               <div class="input-group">
                 <input id="1" class="form-control" type="text" name="search" placeholder="Search..." required/>
