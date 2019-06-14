@@ -9,7 +9,7 @@ use App\Post;
 class PostController extends Controller
 {
   public function search(){
-    return redirect('/search');
+    return view('pages.search');
   }
   
   public function send(Request $request){

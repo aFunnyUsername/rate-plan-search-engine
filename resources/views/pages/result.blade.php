@@ -14,7 +14,7 @@
               <p>Variable Price: {{ $cheapest_plan['pricing']['variable_price'] }} </p>
               <p>Custom Price: {{ $cheapest_plan['pricing']['custom_price'] }} </p> 
               <p>Additional Fees: {{ $cheapest_plan['pricing']['additional_fees'] }} </p>
-              <a href="#" class="btn btn-primary">Sign up for this Plan</a> 
+              <a href="#" class="btn btn-primary">Visit This Supplier's Site</a> 
             </div>
           </div>
         </div>
