@@ -19,4 +19,5 @@ Route::get('/', function () {
 Route::get('/search', 'PostController@search')->name('pages.form');
 Route::post('/search/send', 'PostController@send')->name('pages.send');
 
+//Route:get('/result', 'PostController@show_result')->name('pages.result');
 

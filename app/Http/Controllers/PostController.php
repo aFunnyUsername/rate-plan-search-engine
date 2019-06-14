@@ -26,7 +26,7 @@ class PostController extends Controller
     $rate_zone = $zones[$zipcode];
 
     $plans = DB::collection($rate_zone)->get();
-
+    
     $cheapest_plan = null;
     
     foreach($plans as $plan)
@@ -47,15 +47,6 @@ class PostController extends Controller
         }
       }
     }
-    
-    dd($cheapest_plan['plan_description']);
-
-
-/*if($data){
-                        return redirect()->route('home');
-                }else{
-                        return back();
-                }	
-                 */	
+    return view('pages.result', compact('cheapest_plan'));
   }
 }
