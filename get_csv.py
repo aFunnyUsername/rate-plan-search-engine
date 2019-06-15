@@ -80,7 +80,7 @@ def get_csv(get_options=False):
         old_filename = 'PlugInIllinoisExport.csv'
         new_filename = options[option].replace(' ', '_') + '_data.csv' 
         
-        df = pd.read_csv(old_filename)
+        df = pd.read_csv(download_dir + f'/{old_filename}')
         #loop through the spans and add the hrefs to the csvs.  rename csvs in the process
         for i, span in enumerate(spans):
             a_tag = span.find_element_by_tag_name('a')
