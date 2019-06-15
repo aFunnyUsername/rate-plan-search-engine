@@ -67,35 +67,51 @@ def get_csv(get_options=False):
         button.click()
         results = browser.page_source
 
-        #click the csv download button
         time.sleep(3) 
+        #get the spans so we can get the company hrefs 
+        spans = browser.find_elements_by_xpath('//*[contains(@id, "MasterContent_MasterContent_MasterContent_MasterContent_OfferListView_Label5")]')
+
+        #click the csv download button
         link = browser.find_element_by_link_text("Export to CSV (Excel)")
 
         link.click() 
         time.sleep(15)
-
+        
         old_filename = 'PlugInIllinoisExport.csv'
         new_filename = options[option].replace(' ', '_') + '_data.csv' 
-        print(new_filename) 
-        old_exists = os.path.isfile(download_dir + f'/{old_filename}')
-        #first while loop to check if file has been downloaded 
-        while not old_exists:
-            print('in first while') 
-            time.sleep(1)
-            old_exists = os.path.isfile(download_dir + f'/{old_filename}')
         
-        new_exists = os.path.isfile(download_dir + f'/{new_filename}')
-        #second while loop to check if file name has been changed
-        while not new_exists:
-            print('in second while')
-            if old_exists:
-                os.rename(download_dir + f'/{old_filename}', download_dir + f'/{new_filename}')
-                time.sleep(1) 
-                break
-            else:
-                print('no file!')
+        df = pd.read_csv(old_filename)
+        #loop through the spans and add the hrefs to the csvs.  rename csvs in the process
+        for i, span in enumerate(spans):
+            a_tag = span.find_element_by_tag_name('a')
+            href = a_tag.get_attribute('href')
+            name = a_tag.text
+            df.loc[df['ProductDescription'] == name, 'CompanyHref'] = href
+        
+        
+        print(df) 
+       
+        df.to_csv(download_dir + f'/{new_filename}')
+        #old_exists = os.path.isfile(download_dir + f'/{old_filename}')
+        ##first while loop to check if file has been downloaded 
+        #while not old_exists:
+        #    print('in first while') 
+        #    time.sleep(1)
+        #    old_exists = os.path.isfile(download_dir + f'/{old_filename}')
+        #
+        #new_exists = os.path.isfile(download_dir + f'/{new_filename}')
+        ##second while loop to check if file name has been changed
+        #while not new_exists:
+        #    print('in second while')
+        #    if old_exists:
+        #        os.rename(download_dir + f'/{old_filename}', download_dir + f'/{new_filename}')
+        #        time.sleep(1) 
+        #        break
+        #    else:
+        #        print('no file!')
             
         print('renamed')
+        
         browser.back()
     csv_to_mongo.to_mongo(options, download_dir)
 

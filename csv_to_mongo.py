@@ -67,6 +67,7 @@ def to_mongo(options, download_dir):
 
             plan_dict['plan_description'] = row['ProductDescription']
             plan_dict['supplier'] = row['Supplier']
+            plan_dict['website'] = row['CompanyHref'] 
             plan_dict['pricing'] = pricing_dict
             plan_dict['terms'] = terms_dict
             
