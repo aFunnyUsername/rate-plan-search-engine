@@ -45,7 +45,7 @@ def to_mongo(options, download_dir):
         db = client['heroku_cg8r2zh6']
        
         coll = db[options[option]]
-      
+        coll.remove()
         #host = '192.168.99.115'
         #port = '9999'
         #db_name = 'util_db_test'
